@@ -538,6 +538,51 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 100, y: 0.01, z: 75}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &1322912197
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1322912199}
+  - component: {fileID: 1322912198}
+  m_Layer: 0
+  m_Name: GameFlowController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1322912198
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1322912197}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6b226ec6e4128f4084be82c7a808aab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameFlowController
+  _tapAction: {fileID: 3617701710348306542, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+--- !u!4 &1322912199
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1322912197}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -15.81952, y: 5.97942, z: 5.45117}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1365468262
 GameObject:
   m_ObjectHideFlags: 0
@@ -727,6 +772,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4d874e6d08677e439c6e5cd93bed591, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CarMovement
+  _gameFlowController: {fileID: 1322912198}
   _moveSpeed: 10
   _rigidbody: {fileID: 1788945010}
 --- !u!1001 &2004565152
@@ -804,3 +850,4 @@ SceneRoots:
   - {fileID: 832575519}
   - {fileID: 1365468263}
   - {fileID: 1788945009}
+  - {fileID: 1322912199}
