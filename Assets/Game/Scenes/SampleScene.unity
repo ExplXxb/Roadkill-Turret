@@ -549,7 +549,7 @@ GameObject:
   - component: {fileID: 1322912199}
   - component: {fileID: 1322912198}
   m_Layer: 0
-  m_Name: GameFlowController
+  m_Name: Game Flow Controller
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -577,7 +577,7 @@ Transform:
   m_GameObject: {fileID: 1322912197}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -15.81952, y: 5.97942, z: 5.45117}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -698,6 +698,54 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 197a0cf7cde7bb34b962e904289772f7, type: 3}
   m_PrefabInstance: {fileID: 1741681031}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1775312240
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1775312242}
+  - component: {fileID: 1775312241}
+  m_Layer: 0
+  m_Name: Lifetime Scope
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1775312241
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1775312240}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79e03aaad5559f449859bb3bfdd71212, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameplayLifetimeScope
+  parentReference:
+    TypeName: 
+  autoRun: 1
+  autoInjectGameObjects: []
+--- !u!4 &1775312242
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1775312240}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1788945008
 GameObject:
   m_ObjectHideFlags: 0
@@ -772,7 +820,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4d874e6d08677e439c6e5cd93bed591, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CarMovement
-  _gameFlowController: {fileID: 1322912198}
   _moveSpeed: 10
   _rigidbody: {fileID: 1788945010}
 --- !u!1001 &2004565152
@@ -851,3 +898,4 @@ SceneRoots:
   - {fileID: 1365468263}
   - {fileID: 1788945009}
   - {fileID: 1322912199}
+  - {fileID: 1775312242}
