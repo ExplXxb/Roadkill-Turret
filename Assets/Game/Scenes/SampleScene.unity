@@ -300,6 +300,8 @@ GameObject:
   - component: {fileID: 354844426}
   - component: {fileID: 354844427}
   - component: {fileID: 354844428}
+  - component: {fileID: 354844430}
+  - component: {fileID: 354844429}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -364,6 +366,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af6a597e84ded3e43bdba71d3420c43d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyAggro
+--- !u!114 &354844429
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 354844425}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4736fbcaf417df745a9984ffcbecc404, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyMovement
+  _moveSpeed: 5
+--- !u!114 &354844430
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 354844425}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03c80aaaeba0d7542891cbc4178b2b36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyController
+  _aggroTrigger: {fileID: 354844428}
+  _movement: {fileID: 354844429}
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -768,7 +797,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: a2ec318f98c75c8418bcdaa20f83bece, type: 3}
       propertyPath: m_Name
-      value: Stickman_Model
+      value: Model
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1150,7 +1179,7 @@ GameObject:
   - component: {fileID: 1651295331}
   - component: {fileID: 1651295330}
   m_Layer: 0
-  m_Name: Capsule Collider
+  m_Name: Health
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1371,8 +1400,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1788945009}
   - component: {fileID: 1788945010}
-  - component: {fileID: 1788945011}
   - component: {fileID: 1788945012}
+  - component: {fileID: 1788945011}
   m_Layer: 7
   m_Name: Car
   m_TagString: Untagged
