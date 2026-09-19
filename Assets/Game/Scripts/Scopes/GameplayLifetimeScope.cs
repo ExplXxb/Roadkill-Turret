@@ -11,5 +11,6 @@ public class GameplayLifetimeScope : LifetimeScope
         // кому потрібні ін'єкції
         builder.RegisterComponentInHierarchy<CarMovement>();
         builder.RegisterComponentInHierarchy<TurretShooting>();
+        builder.RegisterComponentInHierarchy<TurretAiming>();
     }
 }

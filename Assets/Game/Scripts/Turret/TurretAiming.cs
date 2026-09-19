@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using VContainer;
 
 public class TurretAiming : MonoBehaviour
 {
@@ -8,22 +9,44 @@ public class TurretAiming : MonoBehaviour
     [SerializeField] private Camera _camera;
     [SerializeField] private float _rotationSpeed = 10f;
 
-    private void OnEnable() => _pointerPositionAction.action.Enable();
-    private void OnDisable() => _pointerPositionAction.action.Disable();
+    private bool _canAim;
+
+    private GameFlowController _gameFlowController;
+
+    [Inject]
+    public void Construct(GameFlowController gameFlowController)
+    {
+        _gameFlowController = gameFlowController;
+    }
+
+    private void OnEnable()
+    {
+        _pointerPositionAction.action.Enable();
+        _gameFlowController.OnGameStarted += StartAiming;
+    }
+
+    private void OnDisable()
+    {
+        _pointerPositionAction.action.Disable();
+        _gameFlowController.OnGameStarted -= StartAiming;
+    }
 
     private void Update()
     {
+        if (!_canAim) return;
+
         Vector2 screenPosition = _pointerPositionAction.action.ReadValue<Vector2>();
         RotateTurretTowards(screenPosition);
     }
+
+    private void StartAiming() => _canAim = true;
+    private void StopAiming() => _canAim = false;
 
     private void RotateTurretTowards(Vector2 screenPosition)
     {
         Vector3? aimPoint = GetAimPointOnPlane(screenPosition, planeHeight: _turretPivot.position.y);
 
         if (!aimPoint.HasValue) return;
-
-        Debug.DrawLine(_turretPivot.position, aimPoint.Value, Color.red);
 
         Vector3 direction = aimPoint.Value - _turretPivot.position;
         direction.y = 0f;
