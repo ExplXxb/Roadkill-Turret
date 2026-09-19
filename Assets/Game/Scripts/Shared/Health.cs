@@ -14,6 +14,8 @@ public class Health : MonoBehaviour, IDamageable
 
     public void TakeDamage(int amount)
     {
+        if (_currentHealth <= 0) return;
+
         _currentHealth = Mathf.Max(0, _currentHealth - amount);
         OnHealthChanged?.Invoke(_currentHealth);
 
