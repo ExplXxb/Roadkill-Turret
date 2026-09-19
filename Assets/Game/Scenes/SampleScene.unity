@@ -653,6 +653,7 @@ GameObject:
   m_Component:
   - component: {fileID: 932367591}
   - component: {fileID: 932367592}
+  - component: {fileID: 932367593}
   m_Layer: 0
   m_Name: Turret
   m_TagString: Untagged
@@ -693,6 +694,21 @@ MonoBehaviour:
   _turretPivot: {fileID: 932367591}
   _camera: {fileID: 330585545}
   _rotationSpeed: 10
+--- !u!114 &932367593
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 932367590}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7223f632f01be2448a728d9b70e49c17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TurretShooting
+  _firePoint: {fileID: 1254826971}
+  _bulletPrefab: {fileID: 8471338815286895698, guid: b1a6b03ecfa1fb5408206ce6b54f4115, type: 3}
+  _fireRate: 0.5
 --- !u!1 &1122329356
 GameObject:
   m_ObjectHideFlags: 0
@@ -1129,7 +1145,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
 --- !u!114 &1788945011
 MonoBehaviour:
   m_ObjectHideFlags: 0
