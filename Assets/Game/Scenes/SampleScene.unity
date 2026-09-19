@@ -393,6 +393,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyController
   _aggroTrigger: {fileID: 354844428}
   _movement: {fileID: 354844429}
+  _attack: {fileID: 1651295332}
+  _health: {fileID: 1651295330}
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -704,8 +706,9 @@ GameObject:
   m_Component:
   - component: {fileID: 851057656}
   - component: {fileID: 851057657}
+  - component: {fileID: 851057658}
   m_Layer: 7
-  m_Name: Box Collider
+  m_Name: Hitbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -747,6 +750,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.4847324, y: 1.0991623, z: 3.99996}
   m_Center: {x: 0, y: -0.19471395, z: 0.1532278}
+--- !u!114 &851057658
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 851057655}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0b4b1d5152085e4e89c6e28b57dc044, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Health
+  _maxHealth: 100
 --- !u!1001 &893037726
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1178,8 +1194,9 @@ GameObject:
   - component: {fileID: 1651295329}
   - component: {fileID: 1651295331}
   - component: {fileID: 1651295330}
+  - component: {fileID: 1651295332}
   m_Layer: 0
-  m_Name: Health
+  m_Name: Hitbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1236,6 +1253,19 @@ CapsuleCollider:
   m_Height: 2.859078
   m_Direction: 1
   m_Center: {x: 0, y: 0.054750443, z: -1.2009368e-10}
+--- !u!114 &1651295332
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1651295328}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5b78c3f368e8a344b5f0d08b726a669, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyAttack
+  _damage: 15
 --- !u!1001 &1741681031
 PrefabInstance:
   m_ObjectHideFlags: 0
