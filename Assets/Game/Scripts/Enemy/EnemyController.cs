@@ -6,6 +6,11 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private EnemyMovement _movement;
     [SerializeField] private EnemyAttack _attack;
     [SerializeField] private Health _health;
+    [SerializeField] private EnemyAnimator _animator;
+
+    [SerializeField] private float _deathAnimationDuration = 2.9667f;
+
+    private bool _isDead = false;
 
     private void OnEnable()
     {
@@ -23,15 +28,29 @@ public class EnemyController : MonoBehaviour
 
     private void HandlePlayerDetected(Car car)
     {
+        if (_isDead) return;
+
         _movement.SetTarget(car.transform);
+        _animator.PlayRun();
     }
 
-    private void HandleAttacked() => Die();
-    private void HandleDied() => Die();
+    private void HandleAttacked()
+    {
+        if (_isDead) return;
+        Die();
+    }
+
+    private void HandleDied()
+    {
+        if (_isDead) return;
+        Die();
+    }
 
     private void Die()
     {
+        _isDead = true;
+        _animator.PlayDeath();
         _movement.Stop();
-        Destroy(gameObject);
+        Destroy(gameObject, _deathAnimationDuration);
     }
 }
