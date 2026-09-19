@@ -6,14 +6,16 @@ public class CarMovement : MonoBehaviour
     [SerializeField] private float _moveSpeed = 10.0f;
     [SerializeField] private Rigidbody _rigidbody;
 
-    GameFlowController _gameFlowController;
     private bool _isMoving = false;
+
+    GameFlowController _gameFlowController;
 
     [Inject]
     public void Construct(GameFlowController gameFlowController)
     {
         _gameFlowController = gameFlowController;
     }
+
     private void OnValidate()
     {
         if (_rigidbody == null)
