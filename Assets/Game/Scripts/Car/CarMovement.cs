@@ -38,6 +38,6 @@ public class CarMovement : MonoBehaviour
         _rigidbody.MovePosition(_rigidbody.position + transform.forward * _moveSpeed * Time.fixedDeltaTime);
     }
 
-    public void StartMoving() => _isMoving = true;
-    public void StopMoving() => _isMoving = false;
+    private void StartMoving() => _isMoving = true;
+    private void StopMoving() => _isMoving = false;
 }

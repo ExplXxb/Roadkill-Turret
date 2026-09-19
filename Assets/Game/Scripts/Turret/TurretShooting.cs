@@ -39,8 +39,8 @@ public class TurretShooting : MonoBehaviour
         }
     }
 
-    public void StartShooting() => _isShooting = true;
-    public void StopShooting() => _isShooting = false;
+    private void StartShooting() => _isShooting = true;
+    private void StopShooting() => _isShooting = false;
 
     private void Shoot()
     {
