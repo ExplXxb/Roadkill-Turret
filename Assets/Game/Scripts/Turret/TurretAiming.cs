@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
-using VContainer;
 
 public class TurretAiming : MonoBehaviour
 {
@@ -11,24 +10,14 @@ public class TurretAiming : MonoBehaviour
 
     private bool _canAim;
 
-    private GameFlowController _gameFlowController;
-
-    [Inject]
-    public void Construct(GameFlowController gameFlowController)
-    {
-        _gameFlowController = gameFlowController;
-    }
-
     private void OnEnable()
     {
         _pointerPositionAction.action.Enable();
-        _gameFlowController.OnGameStarted += StartAiming;
     }
 
     private void OnDisable()
     {
         _pointerPositionAction.action.Disable();
-        _gameFlowController.OnGameStarted -= StartAiming;
     }
 
     private void Update()
@@ -39,8 +28,8 @@ public class TurretAiming : MonoBehaviour
         RotateTurretTowards(screenPosition);
     }
 
-    private void StartAiming() => _canAim = true;
-    private void StopAiming() => _canAim = false;
+    public void StartAiming() => _canAim = true;
+    public void StopAiming() => _canAim = false;
 
     private void RotateTurretTowards(Vector2 screenPosition)
     {

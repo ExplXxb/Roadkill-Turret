@@ -3,12 +3,15 @@ using System;
 using System.Threading;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class GameFlowController : MonoBehaviour
 {
     [SerializeField] private InputActionReference _tapAction;
+    [SerializeField] private LevelController _levelController;
 
     public event Action OnGameStarted;
+    public event Action<bool> OnGameEnded;
 
     private void Start()
     {
@@ -21,7 +24,18 @@ public class GameFlowController : MonoBehaviour
         {
             await WaitForTapAsync(token);
             OnGameStarted?.Invoke();
+
+            bool won = await _levelController.RunLevelAsync(token);
+            OnGameEnded?.Invoke(won);
+
+            await WaitForTapAsync(token);
+            RestartLevel();
         }
+    }
+
+    private void RestartLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     private async UniTask WaitForTapAsync(CancellationToken token)
