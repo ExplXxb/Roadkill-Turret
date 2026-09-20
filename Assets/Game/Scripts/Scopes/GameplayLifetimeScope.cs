@@ -11,5 +11,6 @@ public class GameplayLifetimeScope : LifetimeScope
         builder.RegisterComponentInHierarchy<Car>();
 
         builder.RegisterComponentInHierarchy<LevelController>();
+        builder.RegisterComponentInHierarchy<ResultScreenUI>();
     }
 }
