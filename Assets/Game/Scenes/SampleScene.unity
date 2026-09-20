@@ -1106,7 +1106,7 @@ Transform:
   m_GameObject: {fileID: 631620498}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10.37761, y: -0, z: -1.19365}
+  m_LocalPosition: {x: 0, y: -0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1509,7 +1509,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TurretShooting
   _firePoint: {fileID: 1254826971}
   _bulletPrefab: {fileID: 8471338815286895698, guid: b1a6b03ecfa1fb5408206ce6b54f4115, type: 3}
-  _fireRate: 0.3
+  _fireRate: 0.4
 --- !u!1 &1157218183
 GameObject:
   m_ObjectHideFlags: 0
@@ -1548,7 +1548,7 @@ Transform:
   m_GameObject: {fileID: 1157218183}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -10.37761, y: 0, z: 1.19365}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1709,7 +1709,7 @@ Transform:
   m_GameObject: {fileID: 1229408734}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -10.37761, y: 0, z: 1.19365}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1786,7 +1786,7 @@ Transform:
   m_GameObject: {fileID: 1322912197}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -10.37761, y: 0, z: 1.19365}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1818,7 +1818,7 @@ Transform:
   m_GameObject: {fileID: 1373194721}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.96596, y: 0.005, z: 24.189318}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1839,8 +1839,8 @@ MonoBehaviour:
   _enemyPrefab: {fileID: 5255483573697766570, guid: df39f9496684d4b40a2932f98a75c310, type: 3}
   _averageEnemyCountForSegment: 7
   _roadWidth: 15
-  _minDistanceBetweenEnemies: 3
-  _edgeMargin: 14
+  _minDistanceBetweenEnemies: 7
+  _spawnEdgeMargin: 15
   _maxSpawnAttempts: 30
 --- !u!1 &1389047139
 GameObject:
@@ -2028,7 +2028,7 @@ Transform:
   m_GameObject: {fileID: 1775312240}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -10.37761, y: 0, z: 1.19365}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
