@@ -3,6 +3,7 @@ using System;
 using System.Threading;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class GameFlowController : MonoBehaviour
 {
@@ -28,7 +29,13 @@ public class GameFlowController : MonoBehaviour
             OnGameEnded?.Invoke(won);
 
             await WaitForTapAsync(token);
+            RestartLevel();
         }
+    }
+
+    private void RestartLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     private async UniTask WaitForTapAsync(CancellationToken token)
