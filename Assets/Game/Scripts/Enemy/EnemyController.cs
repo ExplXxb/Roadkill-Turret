@@ -10,10 +10,18 @@ public class EnemyController : MonoBehaviour
 
     [SerializeField] private float _deathAnimationDuration = 2.9667f;
 
+    private Collider _hitboxCollider; // одночасно й для атаки, й для отримання шкоди
     private bool _isDead = false;
+
+    private void Awake()
+    {
+        _hitboxCollider = _attack.GetComponent<Collider>();
+    }
 
     private void OnEnable()
     {
+        _hitboxCollider.enabled = true; // на випадок повторного використання через object pooling у майбутньому
+
         _aggroTrigger.OnPlayerDetected += HandlePlayerDetected;
         _attack.OnAttacked += HandleAttacked;
         _health.OnDied += HandleDied;
@@ -49,6 +57,7 @@ public class EnemyController : MonoBehaviour
     private void Die()
     {
         _isDead = true;
+        _hitboxCollider.enabled = false;
         _animator.PlayDeath();
         _movement.Stop();
         Destroy(gameObject, _deathAnimationDuration);

@@ -5,14 +5,18 @@ using VContainer;
 
 public class LevelController : MonoBehaviour
 {
-    [SerializeField] private FinishLine _finishLine;
-
+    private FinishLine _finishLine;
     private Health _carHealth;
 
     [Inject]
     public void Construct(Car car)
     {
         _carHealth = car.Health;
+    }
+
+    public void SetFinishLine(FinishLine finishLine)
+    {
+        _finishLine = finishLine;
     }
 
     public async UniTask<bool> RunLevelAsync(CancellationToken token)
