@@ -1,5 +1,4 @@
 using UnityEngine;
-using VContainer;
 
 public class CarMovement : MonoBehaviour
 {
@@ -8,28 +7,10 @@ public class CarMovement : MonoBehaviour
 
     private bool _isMoving = false;
 
-    GameFlowController _gameFlowController;
-
-    [Inject]
-    public void Construct(GameFlowController gameFlowController)
-    {
-        _gameFlowController = gameFlowController;
-    }
-
     private void OnValidate()
     {
         if (_rigidbody == null)
             _rigidbody = GetComponent<Rigidbody>();
-    }
-
-    private void OnEnable()
-    {
-        _gameFlowController.OnGameStarted += StartMoving;
-    }
-
-    private void OnDisable()
-    {
-        _gameFlowController.OnGameStarted -= StartMoving;
     }
 
     private void FixedUpdate()
@@ -38,6 +19,7 @@ public class CarMovement : MonoBehaviour
         _rigidbody.MovePosition(_rigidbody.position + transform.forward * _moveSpeed * Time.fixedDeltaTime);
     }
 
-    private void StartMoving() => _isMoving = true;
-    private void StopMoving() => _isMoving = false;
+    public void StartMoving() => _isMoving = true;
+    public void StopMoving() => _isMoving = false;
+
 }

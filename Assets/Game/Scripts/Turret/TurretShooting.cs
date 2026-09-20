@@ -1,5 +1,4 @@
 using UnityEngine;
-using VContainer;
 
 public class TurretShooting : MonoBehaviour
 {
@@ -9,24 +8,6 @@ public class TurretShooting : MonoBehaviour
 
     private bool _isShooting = false;
     private float _cooldownTimer;
-
-    private GameFlowController _gameFlowController;
-
-    [Inject]
-    public void Construct(GameFlowController gameFlowController)
-    {
-        _gameFlowController = gameFlowController;
-    }
-
-    private void OnEnable()
-    {
-        _gameFlowController.OnGameStarted += StartShooting;
-    }
-
-    private void OnDisable()
-    {
-        _gameFlowController.OnGameStarted -= StartShooting;
-    }
 
     private void Update()
     {
@@ -39,8 +20,8 @@ public class TurretShooting : MonoBehaviour
         }
     }
 
-    private void StartShooting() => _isShooting = true;
-    private void StopShooting() => _isShooting = false;
+    public void StartShooting() => _isShooting = true;
+    public void StopShooting() => _isShooting = false;
 
     private void Shoot()
     {
