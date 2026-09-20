@@ -7,8 +7,10 @@ using UnityEngine.InputSystem;
 public class GameFlowController : MonoBehaviour
 {
     [SerializeField] private InputActionReference _tapAction;
+    [SerializeField] private LevelController _levelController;
 
     public event Action OnGameStarted;
+    public event Action<bool> OnGameEnded;
 
     private void Start()
     {
@@ -21,6 +23,11 @@ public class GameFlowController : MonoBehaviour
         {
             await WaitForTapAsync(token);
             OnGameStarted?.Invoke();
+
+            bool won = await _levelController.RunLevelAsync(token);
+            OnGameEnded?.Invoke(won);
+
+            await WaitForTapAsync(token);
         }
     }
 
