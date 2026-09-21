@@ -276,7 +276,7 @@ GameObject:
   - component: {fileID: 5512993632379266366}
   - component: {fileID: 8097543010811130449}
   - component: {fileID: 7220935806589681270}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Hitbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -357,7 +357,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7036610501307122484}
   - component: {fileID: 2248885074113079522}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Aggro
   m_TagString: Untagged
   m_Icon: {fileID: 0}
