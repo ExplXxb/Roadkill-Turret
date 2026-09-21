@@ -4,10 +4,11 @@ using UnityEngine.Pool;
 
 public class Bullet : MonoBehaviour
 {
+    [SerializeField] private Rigidbody _rigidbody;
+    [SerializeField] private TrailRenderer _trailRenderer;
     [SerializeField] private float _speed = 30.0f;
     [SerializeField] private int _damage = 10;
     [SerializeField] private float _lifetime = 3f;
-    [SerializeField] private Rigidbody _rigidbody;
 
     private IObjectPool<Bullet> _pool;
     private Coroutine _lifetimeCoroutine;
@@ -16,6 +17,9 @@ public class Bullet : MonoBehaviour
     {
         if (_rigidbody == null)
             _rigidbody = GetComponent<Rigidbody>();
+
+        if (_trailRenderer == null)
+            _trailRenderer = GetComponentInChildren<TrailRenderer>();
     }
 
     private void OnEnable()
@@ -41,6 +45,12 @@ public class Bullet : MonoBehaviour
             StopCoroutine(_lifetimeCoroutine);
             _lifetimeCoroutine = null;
         }
+
+        if (_trailRenderer != null)
+        {
+            _trailRenderer.Clear();
+            _trailRenderer.enabled = false;
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -51,6 +61,14 @@ public class Bullet : MonoBehaviour
         }
 
         ReturnToPool();
+    }
+
+    public void ActivateTrail()
+    {
+        if (_trailRenderer == null) return;
+
+        _trailRenderer.Clear();
+        _trailRenderer.enabled = true;
     }
 
     public void SetPool(IObjectPool<Bullet> pool)

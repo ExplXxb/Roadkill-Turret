@@ -12,5 +12,6 @@ public class GameplayLifetimeScope : LifetimeScope
 
         builder.RegisterComponentInHierarchy<LevelController>();
         builder.RegisterComponentInHierarchy<ResultScreenUI>();
+        builder.RegisterComponentInHierarchy<TutorialHintUI>();
     }
 }

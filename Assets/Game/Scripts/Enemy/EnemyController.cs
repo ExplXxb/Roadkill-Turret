@@ -7,6 +7,7 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private EnemyAttack _attack;
     [SerializeField] private Health _health;
     [SerializeField] private EnemyAnimator _animator;
+    [SerializeField] private DamagedVFX _damagedVFX;
 
     [SerializeField] private float _deathAnimationDuration = 2.9667f;
 
@@ -24,6 +25,7 @@ public class EnemyController : MonoBehaviour
 
         _aggroTrigger.OnPlayerDetected += HandlePlayerDetected;
         _attack.OnAttacked += HandleAttacked;
+        _health.OnHealthChanged += HandleTakeDamage;
         _health.OnDied += HandleDied;
     }
 
@@ -31,6 +33,7 @@ public class EnemyController : MonoBehaviour
     {
         _aggroTrigger.OnPlayerDetected -= HandlePlayerDetected;
         _attack.OnAttacked -= HandleAttacked;
+        _health.OnHealthChanged -= HandleTakeDamage;
         _health.OnDied -= HandleDied;
     }
 
@@ -45,7 +48,15 @@ public class EnemyController : MonoBehaviour
     private void HandleAttacked()
     {
         if (_isDead) return;
-        Die();
+        _isDead = true;
+        _hitboxCollider.enabled = false;
+        _damagedVFX.Play();
+        Destroy(gameObject, 0.05f); // невелика затримка, щоб все точно відіграло
+    }
+
+    private void HandleTakeDamage(int newHealth)
+    {
+        _damagedVFX.Play();
     }
 
     private void HandleDied()
