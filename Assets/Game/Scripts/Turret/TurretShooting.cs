@@ -43,7 +43,9 @@ public class TurretShooting : MonoBehaviour
 
     private void Shoot()
     {
-        _bulletPool.Get();
+        Bullet bullet = _bulletPool.Get();
+
+        bullet.ActivateTrail();
     }
 
     private Bullet CreateBullet()
