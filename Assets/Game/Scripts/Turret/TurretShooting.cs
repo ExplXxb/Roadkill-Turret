@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Pool;
 
@@ -6,11 +7,15 @@ public class TurretShooting : MonoBehaviour
     [SerializeField] private Transform _firePoint;
     [SerializeField] private Bullet _bulletPrefab;
     [SerializeField] private float _fireRate = 0.5f;
+    [Header("Flashlight Effect")]
+    [SerializeField] private Light _light;
+    [SerializeField] private float _blinkingTime = 0.05f;
 
     private bool _isShooting = false;
     private float _cooldownTimer;
     private IObjectPool<Bullet> _bulletPool;
     private Transform _poolContainer;
+    private Coroutine _lightBlinkingRoutine = null;
 
     private void Awake()
     {
@@ -25,6 +30,11 @@ public class TurretShooting : MonoBehaviour
             defaultCapacity: 20,
             maxSize: 100
         );
+
+        if (_light != null)
+        {
+            _light.enabled = false;
+        }
     }
 
     private void Update()
@@ -46,6 +56,25 @@ public class TurretShooting : MonoBehaviour
         Bullet bullet = _bulletPool.Get();
 
         bullet.ActivateTrail();
+
+        if (_light != null)
+        {
+            if (_lightBlinkingRoutine != null)
+            {
+                StopCoroutine(_lightBlinkingRoutine);
+            }
+            _lightBlinkingRoutine = StartCoroutine(LightBlinkingRoutine());
+        }
+    }
+
+    private IEnumerator LightBlinkingRoutine()
+    {
+        _light.enabled = true;
+
+        yield return new WaitForSeconds(_blinkingTime);
+
+        _light.enabled = false;
+        _lightBlinkingRoutine = null;
     }
 
     private Bullet CreateBullet()

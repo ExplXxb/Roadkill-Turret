@@ -22,7 +22,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1163862293284454105, guid: 5b045f4224af3884eaf4262d8afd2703, type: 3}
       propertyPath: InitialModule.startColor.maxColor.r
-      value: 1
+      value: 0.5471698
       objectReference: {fileID: 0}
     - target: {fileID: 1163862293284454105, guid: 5b045f4224af3884eaf4262d8afd2703, type: 3}
       propertyPath: EmissionModule.rateOverTime.minScalar
