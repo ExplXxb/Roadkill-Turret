@@ -92,6 +92,7 @@ MonoBehaviour:
   _fillImage: {fileID: 387564463956765122}
   _backgroundImage: {fileID: 4252339852186889651}
   _isShowOnFullHealth: 0
+  _hideDelayAfterDeath: 0.5
 --- !u!1 &3021280842756348085
 GameObject:
   m_ObjectHideFlags: 0
@@ -174,6 +175,7 @@ MonoBehaviour:
   _fillImage: {fileID: 387564463956765122}
   _backgroundImage: {fileID: 4252339852186889651}
   _isShowOnFullHealth: 0
+  _hideDelayAfterDeath: 1.2
 --- !u!114 &8103805437992379314
 MonoBehaviour:
   m_ObjectHideFlags: 0
