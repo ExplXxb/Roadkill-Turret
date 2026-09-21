@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7753724482527442356}
   - component: {fileID: 766081852097350753}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Capsule Trigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -147,9 +147,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Model
       objectReference: {fileID: 0}
+    - target: {fileID: -2034165986683569863, guid: 1c8e5c42f309b4c47a40550a2a48d3eb, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 1c8e5c42f309b4c47a40550a2a48d3eb, type: 3}
       propertyPath: m_Name
       value: Bullet
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 1c8e5c42f309b4c47a40550a2a48d3eb, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
