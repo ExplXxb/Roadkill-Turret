@@ -7,6 +7,7 @@ public class Car : MonoBehaviour
     [SerializeField] private CarMovement _movement;
     [SerializeField] private TurretShooting _turretShooting;
     [SerializeField] private TurretAiming _turretAiming;
+    [SerializeField] private DamagedVFX _damagedVFX;
 
     private GameFlowController _gameFlowController;
 
@@ -22,12 +23,14 @@ public class Car : MonoBehaviour
     {
         _gameFlowController.OnGameStarted += HandleGameStarted;
         _gameFlowController.OnGameEnded += HandleGameEnded;
+        _health.OnHealthChanged += HandleTakeDamage;
     }
 
     private void OnDisable()
     {
         _gameFlowController.OnGameStarted -= HandleGameStarted;
         _gameFlowController.OnGameEnded -= HandleGameEnded;
+        _health.OnHealthChanged += HandleTakeDamage;
     }
 
     private void HandleGameStarted()
@@ -42,5 +45,10 @@ public class Car : MonoBehaviour
         _movement.StopMoving();
         _turretShooting.StopShooting();
         _turretAiming.StopAiming();
+    }
+
+    private void HandleTakeDamage(int newHealth)
+    {
+        _damagedVFX.Play();
     }
 }
