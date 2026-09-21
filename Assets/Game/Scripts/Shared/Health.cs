@@ -10,6 +10,8 @@ public class Health : MonoBehaviour, IDamageable
 
     private int _currentHealth;
 
+    public int MaxHealth => _maxHealth;
+
     private void Awake() => _currentHealth = _maxHealth;
 
     public void TakeDamage(int amount)
